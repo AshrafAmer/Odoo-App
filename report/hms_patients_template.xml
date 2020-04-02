@@ -1,0 +1,46 @@
+<odoo>
+
+    <template id="hms_patients_template">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h1> Patient Status Report</h1>
+                        <img t-attf-src="'data:image/*;base64,{{o.image}}'" style="margin-right: 270px; padding: 5px; width:150px;height:150px"/>
+
+                        <br />
+                        <span style="margin-top: 50px; margin-bottom: 50px;"></span>
+                        <div style="display:inline-block; margin: 5px 50px 5px 5px; border-right: 2px solid black;">
+                            <h3> First Name  : </h3> <span t-field="o.first_name"/>
+                            <h3> Last Name   : </h3> <span t-field="o.last_name"/>
+                            <h3> Patient Age : </h3> <span t-field="o.age"/>
+                        </div>
+                        <div style="display:inline-block; margin: 5px;">
+                            <h3> Email   : </h3> <span t-field="o.email"/>
+                            <h3> Address : </h3> <span t-field="o.address"/>
+                            <h3> State   : </h3> <span t-field="o.state"/>
+                        </div>
+                        <br />
+                        <span style="margin-top: 50px; margin-bottom: 50px;"></span>
+
+
+                        <table>
+                            <tr>
+                                <th>User</th>
+                                <th>Date</th>
+                                <th>Info</th>
+                            </tr>
+                            <tr t-foreach="o.logs" t-as="log">
+                                <td><span t-field="log.create_uid"/></td>
+                                <td><span t-field="log.create_date"/></td>
+                                <td><span t-field="log.description"/></td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+</odoo>

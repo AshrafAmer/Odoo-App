@@ -1,0 +1,12 @@
+<odoo>
+    <data>
+        <!--Create two groups [Manager and Staff]-->
+        <record id="hms_staff_group" model="res.groups">
+            <field name="name">Staff</field>
+        </record>
+
+        <record id="hms_manager_group" model="res.groups">
+            <field name="name">Manager</field>
+        </record>
+    </data>
+</odoo>
